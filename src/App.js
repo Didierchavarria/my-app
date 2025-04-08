@@ -11,6 +11,7 @@ import './App.css';
 
 
 
+
 function HelloWorld() {
   const nombre = 'Didier Bermudez';
   return (
@@ -23,11 +24,16 @@ function HelloWorld() {
 function App() {
 
   const logotipo = logo;
-  const nombre = "Hello World";
+
+  const mostrarImagen = true;
+
+  const contador = 4;
 
   return (
     <div className="App">
       <header className="App-header">
+        
+
         <img src={logotipo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -43,8 +49,29 @@ function App() {
         </a>
       </header>
       <HelloWorld />
+      <div>
+      {/* react */}
+      {mostrarImagen? <img src={logotipo} className="App-logo" alt="logo" /> : 'No hay imagen para mostrar'}
+
+      {/* vue */}
+      {/* <img v-if="mostrarImagen" src={logotipo} className="App-logo" alt="logo" />
+      <span v-else>No hay imagen</span> */}
+
+      {contador === 5 && 
+     <p> El contador es igual a 5</p>  }
+
+     {contador < 5 && 
+    <p>El contador es menor a 5 </p>  }
+    
+    {contador > 5 && 
+     <p>El contador es mayor a 5 </p>  }
+
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
+
