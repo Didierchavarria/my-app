@@ -29,6 +29,35 @@ function App() {
 
   const contador = 4;
 
+  const entrada = ['a', 'b', 'c'];
+
+  const opcionesMenu = 
+    [ { id: 1, texto: 'Inicio', ruta: '/' },
+      
+       { id: 2, texto: 'Productos', ruta: '/productos' },
+
+       { id: 3, texto: 'Servicios', ruta: '/servicios' },  
+  ]
+    
+   
+
+  const menu = opcionesMenu.map(elemento => {
+    return(
+      <div>
+        
+        <h1>Estos son los elmentod </h1>
+        <p> {elemento.texto}</p>
+      </div>
+    )
+  } )
+  const parrafos = entrada.map(elemento => {
+    return (
+      <div>
+         <pag>{elemento}</pag>
+      </div>
+    )
+  })
+
   return (
     <div className="App">
       <header className="App-header">
@@ -67,6 +96,8 @@ function App() {
      <p>El contador es mayor a 5 </p>  }
 
       </div>
+      <h1>Estos son los elementos:</h1>
+      {parrafos}
     </div>
   );
 }
