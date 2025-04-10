@@ -32,24 +32,32 @@ function App() {
   const entrada = ['a', 'b', 'c'];
 
   const opcionesMenu = 
-    [ { id: 1, texto: 'Inicio', ruta: '/' },
-      
-       { id: 2, texto: 'Productos', ruta: '/productos' },
+    [ { id: 1, texto: 'Inicio', ruta: '/', isselected : true },
 
-       { id: 3, texto: 'Servicios', ruta: '/servicios' },  
+       { id: 2, texto: 'Productos', ruta: '/productos' , isselected : false },
+
+       { id: 3, texto: 'Servicios', ruta: '/servicios' ,  isselected : true },
   ]
+
+  const actualizarSeleccion = (id = null) =>{
+  console.log ('click en el elemento', id)
+ };
     
    
 
   const menu = opcionesMenu.map(elemento => {
     return(
-      <div>
+      
+        <a href={elemento.link}
+         key={elemento.id}
+          style={{margin:'10px'}} 
+            onClick={actualizarSeleccion.bind (this,elemento.id)} >
+        {elemento.texto}
+        {elemento.isselected && ( <b>*</b>)  }
         
-        <h1>Estos son los elmentod </h1>
-        <p> {elemento.texto}</p>
-      </div>
-    )
-  } )
+      </a>
+    );
+  } );
   const parrafos = entrada.map(elemento => {
     return (
       <div>
@@ -58,7 +66,13 @@ function App() {
     )
   })
 
+  
+
+
+
+
   return (
+    
     <div className="App">
       <header className="App-header">
         
@@ -73,6 +87,8 @@ function App() {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
+
+
           >
           Learn React
         </a>
@@ -98,9 +114,18 @@ function App() {
       </div>
       <h1>Estos son los elementos:</h1>
       {parrafos}
+      <h1>Este es el menu:</h1>
+      {menu}
     </div>
+
+
+   
   );
 }
+
+
+
+
 
 export default App;
 
